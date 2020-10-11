@@ -1,0 +1,11 @@
+NODE_INST="$HOME/Tools/node"
+
+PATH=$NODE_INST/bin:$PATH:
+
+# NPM packages in homedir
+NPM_PACKAGES="$NODE_INST"
+# Tell our environment about user-installed node tools
+#PATH="$NPM_PACKAGES/bin:$PATH"
+#MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+# Tell Node about these packages
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
