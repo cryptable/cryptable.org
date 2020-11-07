@@ -1,6 +1,8 @@
 collections:
   authors:
     output: true
+  services:
+    output: true
 
 defaults:
   - scope:
@@ -8,6 +10,11 @@ defaults:
       type: "authors"
     values:
       layout: "author"
+  - scope:
+      path: ""
+      type: "services"
+    values:
+      layout: "service"
   - scope:
       path: ""
       type: "posts"
