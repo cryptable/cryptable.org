@@ -1,7 +1,12 @@
 collections:
-  authors:
-    output: true
   services:
+    order:
+      - pki_keymgmnt.md
+      - iam.md
+      - strong_auth.md
+      - crypto.md
+    output: true
+  authors:
     output: true
 
 defaults:

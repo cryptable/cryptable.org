@@ -1,4 +1,5 @@
 - name: Home
+  img: "assets/images/logo-color5-logo.png"
   link: /
 - name: About
   link: /about.html
