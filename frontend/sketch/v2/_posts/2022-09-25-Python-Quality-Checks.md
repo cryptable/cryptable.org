@@ -1,17 +1,20 @@
----
-layout: post
-author: david
-title: Python Quality Checks
-summary: Discussion and choice of tooling to verify my python code
----
-
-# Python testing and quality
-
 ## Introduction
 
-We use python 3.8 or higher with poetry as dependency management.
+I use python 3.9 poetry as dependency management. So probably it works from Python 3.8 and up. I always have to remind myself to write clean code. I hate to remember all those standards and coding guidelines, but in a team you have to follow them. SO I use tooling to format my code. These tooling here are all used to write nice clean formatted code and to remind me I need to write documentation. I don't get into details of the tools themselves, but I will when discussing each tool individually.
+
+You'll see at the end how to create documentation from your Python source code with **Sphinx**, bat this is in a later blog-post. It does seem to be the standard when extracting docstrings from your Python code.
+
+What would I like to write in later blogs:
+
+- Using **Sphinx** to build documentation.
+- Settings in **Interrogate** to ignore documentation reminders in python code. This is quite important, because you don't wan't to write documentation everywhere. Small private utility functions do explain themselves and are most of the time not a part of your API. APIs on the contrary should be well documented.
+- Settings to ignore quality checks in the code.
+- CI/CD integration using **Buildbot**. It's written in python.
+- HTML publishing of Quality Check results
 
 We build a small project to calculate fibonacci numbers using python with command line. The main goal is to check the code quality, testing and coverage. As I did in the past with Java projects.
+
+Github project: [pyton-qa-project](https://github.com/cryptable/python-qa-project)
 
 ### Tools used:
 
@@ -138,13 +141,13 @@ class Fibonacci:
         return '<fibonacci><result>{}</result><error-msg>{}</error-msg></fibonacci>'.format(value, error_msg)
 
     def _output_error_json(self, value, error_msg):
-        return '{{"{{"}}"result":{},"error-msg>":"{}"}}'.format(value, error_msg)
+        return '{{ "{{" }}"result":{},"error-msg>":"{}"}}'.format(value, error_msg)
 
     def _output_value_xml(self, value):
         return '<fibonacci><result>{}</result></fibonacci>'.format(value)
 
     def _output_value_json(self, value):
-        return '{{"{{"}}"result":{}}}'.format(value)
+        return '{{ "{{" }}"result":{}}}'.format(value)
 
     def _output(self, json_format, value, error_msg=None):
         if error_msg:
@@ -663,7 +666,7 @@ def _output_error_json(value, error_msg):
     :param error_msg: descriptive error message
     :return:
     """
-    return '{{"{{"}}"result":{},"error-msg>":"{}"}}'.format(value, error_msg)
+    return '{{ "{{" }}"result":{},"error-msg>":"{}"}}'.format(value, error_msg)
 
 
 def _output_value_xml(value):
@@ -681,7 +684,7 @@ def _output_value_json(value):
     :param value: Fibonacci result
     :return:
     """
-    return '{{"{{"}}"result":{}}'.format(value)
+    return '{{ "{{" }}"result":{}}}'.format(value)
 
 
 def _output(json_format, value, error_msg=None):
