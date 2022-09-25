@@ -1,5 +1,7 @@
-- name: Home
+- name: 
   img: "/assets/images/logo-color5-logo.png"
+  link: /
+- name: Home
   link: /
 - name: About
   link: /about.html

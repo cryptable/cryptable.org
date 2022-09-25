@@ -1,0 +1,78 @@
+---
+---
+@charset "utf-8";
+
+
+
+// Our variables
+$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-size:   16px;
+$base-font-weight: 400;
+$small-font-size:  $base-font-size * 0.875;
+// $large-font-size:  $base-font-size * 1.125; // why doesn't this work?
+$large-font-size:  18px;
+$base-line-height: 1.5;
+
+$spacing-unit:     30px;
+
+$text-color:       #111;
+$background-color: #f2eaf9;
+// $background-color: #fff0fd;
+//$brand-color:      #2a7ae2;
+$brand-color:      #5a4ae2;
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+$dark-purple:      #631e99;
+$dark-blue:        #261e99;
+$dark-magenta:     #991e90;
+$red-brick:        #99261e;
+$dark-gold:        #99631e;
+$shadow-color:     #aaa;
+
+// From syntax-highlighting, so I can use them elsewhere
+$magenta:   #d33682;
+$violet:    #6c71c4;
+// $blue:      #268bd2;
+$blue:      #1e5399;
+// $teal:      #2aa198;
+$teal:      #26938a;
+$olive:     #859900;    // was green
+$green:     #0c7f1c;    // was color of olive
+
+// Width of the content area
+$content-width:    900px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+
+@mixin media-query($device) {
+   @media screen and (max-width: $device) {
+       @content;
+   }
+};
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-bottom: $spacing-unit / 2;
+}
+
+
+@import "main", "_syntax-highlighting";
